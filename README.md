@@ -1,16 +1,36 @@
-# github_genui
+# GitHub GenUI
 
-A new Flutter project.
+A Flutter app that uses [GenUI](https://github.com/flutter/genui) to dynamically generate GitHub-browsing interfaces via AI. Chat with the AI to explore public GitHub repositories, users, and issues. The AI responds with either text or dynamically-generated Flutter widgets.
 
-## Getting Started
+![Screenshot](images/screenshot.png)
 
-This project is a starting point for a Flutter application.
+## Setup
 
-A few resources to get you started if this is your first Flutter project:
+### Get a Gemini API Key
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Go to [Google AI Studio](https://aistudio.google.com/apikey)
+2. Sign in with your Google account
+3. Click "Create API Key"
+4. Copy the key
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Configure the App
+
+Create a file `lib/api_key.dart` with your API key:
+
+```dart
+const geminiApiKey = 'YOUR_API_KEY_HERE';
+```
+
+This file is gitignored to keep your key safe.
+
+## Run
+
+```bash
+flutter pub get
+flutter run
+```
+
+## Requirements
+
+- Flutter >= 3.35.7
+- Dart >= 3.8.0
