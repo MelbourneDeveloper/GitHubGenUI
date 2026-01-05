@@ -8,6 +8,8 @@ import 'package:github_genui/catalog/github_catalog.dart';
 import 'package:github_genui/configuration.dart';
 import 'package:github_genui/screens/widgets/chat_bubbles.dart';
 import 'package:github_genui/screens/widgets/chat_input.dart';
+import 'package:github_genui/services/github_api.dart';
+import 'package:github_genui/services/github_tools.dart';
 import 'package:github_genui/theme/github_theme.dart';
 
 /// Factory for creating a content generator.
@@ -62,10 +64,16 @@ class _ChatScreenState extends State<ChatScreen> {
         });
         return;
       }
+
+      // Create GitHub API client and tools
+      final gitHubApi = GitHubApi();
+      final gitHubTools = createGitHubTools(gitHubApi);
+
       contentGenerator = GoogleGenerativeAiContentGenerator(
         catalog: catalog,
         systemInstruction: systemInstruction,
         apiKey: geminiApiKey,
+        additionalTools: gitHubTools,
       );
     }
 

@@ -63,30 +63,48 @@ String formatCount(int count) {
   return count.toString();
 }
 
+/// Language color constants.
+const _dartColor = Color(0xFF00B4AB);
+const _javaScriptColor = Color(0xFFF1E05A);
+const _typeScriptColor = Color(0xFF3178C6);
+const _pythonColor = Color(0xFF3572A5);
+const _javaColor = Color(0xFFB07219);
+const _kotlinColor = Color(0xFFA97BFF);
+const _swiftColor = Color(0xFFFFAC45);
+const _goColor = Color(0xFF00ADD8);
+const _rustColor = Color(0xFFDEA584);
+const _cppColor = Color(0xFFF34B7D);
+const _cColor = Color(0xFF555555);
+const _csharpColor = Color(0xFF178600);
+const _rubyColor = Color(0xFF701516);
+const _phpColor = Color(0xFF4F5D95);
+const _htmlColor = Color(0xFFE34C26);
+const _cssColor = Color(0xFF563D7C);
+const _shellColor = Color(0xFF89E051);
+const _vueColor = Color(0xFF41B883);
+
 /// Gets color for a programming language.
-Color getLanguageColor(String language) {
-  const colors = {
-    'Dart': Color(0xFF00B4AB),
-    'JavaScript': Color(0xFFF1E05A),
-    'TypeScript': Color(0xFF3178C6),
-    'Python': Color(0xFF3572A5),
-    'Java': Color(0xFFB07219),
-    'Kotlin': Color(0xFFA97BFF),
-    'Swift': Color(0xFFFFAC45),
-    'Go': Color(0xFF00ADD8),
-    'Rust': Color(0xFFDEA584),
-    'C++': Color(0xFFF34B7D),
-    'C': Color(0xFF555555),
-    'C#': Color(0xFF178600),
-    'Ruby': Color(0xFF701516),
-    'PHP': Color(0xFF4F5D95),
-    'HTML': Color(0xFFE34C26),
-    'CSS': Color(0xFF563D7C),
-    'Shell': Color(0xFF89E051),
-    'Vue': Color(0xFF41B883),
-  };
-  return colors[language] ?? GitHubColors.fgMuted;
-}
+Color getLanguageColor(String language) => switch (language) {
+  'Dart' => _dartColor,
+  'JavaScript' => _javaScriptColor,
+  'TypeScript' => _typeScriptColor,
+  'Python' => _pythonColor,
+  'Java' => _javaColor,
+  'Kotlin' => _kotlinColor,
+  'Swift' => _swiftColor,
+  'Go' => _goColor,
+  'Rust' => _rustColor,
+  'C++' => _cppColor,
+  'C' => _cColor,
+  'C#' => _csharpColor,
+  'Ruby' => _rubyColor,
+  'PHP' => _phpColor,
+  'HTML' => _htmlColor,
+  'CSS' => _cssColor,
+  'Shell' => _shellColor,
+  'Vue' => _vueColor,
+  _ => GitHubColors.fgMuted,
+};
 
 /// Parses a hex color string to Color.
 Color parseColor(String? hex) {
@@ -99,21 +117,19 @@ Color parseColor(String? hex) {
 }
 
 /// Gets an IconData from a name.
-IconData getIcon(String name) {
-  const icons = {
-    'star': Icons.star_outline,
-    'fork': Icons.call_split,
-    'eye': Icons.visibility_outlined,
-    'issue': Icons.circle_outlined,
-    'pr': Icons.call_merge,
-    'commit': Icons.commit,
-    'repo': Icons.book_outlined,
-    'user': Icons.person_outline,
-    'code': Icons.code,
-    'branch': Icons.account_tree_outlined,
-  };
-  return icons[name] ?? Icons.help_outline;
-}
+IconData getIcon(String name) => switch (name) {
+  'star' => Icons.star_outline,
+  'fork' => Icons.call_split,
+  'eye' => Icons.visibility_outlined,
+  'issue' => Icons.circle_outlined,
+  'pr' => Icons.call_merge,
+  'commit' => Icons.commit,
+  'repo' => Icons.book_outlined,
+  'user' => Icons.person_outline,
+  'code' => Icons.code,
+  'branch' => Icons.account_tree_outlined,
+  _ => Icons.help_outline,
+};
 
 /// Callback for URL launch.
 VoidCallback? onTapUrl(String? url) =>
